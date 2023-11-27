@@ -108,7 +108,7 @@ const Form = () => {
   };
 
   useEffect(() => {
-    setIncludeNudge(Math.floor(Math.random() * 2));
+    setIncludeNudge(Math.random() < 0.5 ? 1 : 0);
   }, []);
 
   const handleResponseIntro = (response, index) => {
