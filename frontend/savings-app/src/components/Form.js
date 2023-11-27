@@ -15,6 +15,9 @@ import './Form.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 
+
+const BACKEND_URL = 'http://localhost:5000/api/store-answers';
+
 const Form = () => {
 
   const [section, setSection] = useState(1);
@@ -56,7 +59,7 @@ const Form = () => {
     }
     const answersJSON = JSON.stringify({ answers: answersArray });
     console.log("answersJSON = ",answersJSON);
-    axios.post('http://localhost:5000/api/store-answers', { answersJSON })
+    axios.post(BACKEND_URL, { answersJSON })
     .then(response => {
       console.log('Response:', response.data);
     })
