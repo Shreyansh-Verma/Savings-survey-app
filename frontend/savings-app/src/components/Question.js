@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import App from '../App';
 
 const Question = ({ question, options, sectionInfo, questionNumber }) => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -10,11 +11,11 @@ const Question = ({ question, options, sectionInfo, questionNumber }) => {
 
   return (
     <div>
-      <h3>{question}</h3>
+      <h3 className='text2'>{question}</h3>
       <form>
         {options.map((option, index) => (
           <div key={index}>
-            <label>
+            <label className='text3'>
               <input
                 type="radio"
                 value={option}
