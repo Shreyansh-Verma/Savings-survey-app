@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +36,32 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.text {
+  color: rgb(25, 162, 193);
+  margin-top: 1rem;
+}
+.text2 {
+  color: rgb(25, 162, 193);
+
+  font-family: monospace;
+  font-size: xx-large;
+}
+.text3 {
+  font-family: monospace;
+  color: rgb(255, 255, 255);
+
+  font-size: x-large;
+}
+
+
+a {
+  color: rgb(25, 162, 193);
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: white;
 }

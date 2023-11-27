@@ -36,8 +36,13 @@ const PostSurvey = ({ handleResponse }) => {
         sectionInfo = {handleResponse}
         questionNumber = {0}
         />
+
+<br/>
       <h3>{postQuestions[1].question}</h3>
+      <br/>
+      
       {postQuestions[1].options.map((option, index) => (
+        <>
         <div key={index}>
           <label>
             <input
@@ -49,6 +54,8 @@ const PostSurvey = ({ handleResponse }) => {
             {option}
           </label>
         </div>
+        <br/>
+        </>
       ))}
       </div> 
       }

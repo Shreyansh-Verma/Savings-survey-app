@@ -1,0 +1,35 @@
+/* styles.css */
+
+body {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 600px; /* Adjust the max-width based on your design */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    margin-top: 1rem;
+  }
+  
+  button {
+    background-color: #007bff; /* Bootstrap primary button color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Bootstrap primary button hover color */
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  /* Add more styles as needed for your specific elements */
+  

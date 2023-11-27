@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import Section from './Section';
 import IntroQuestions from './IntroQuestions';
 import SectionInfo from './SectionInfo';
@@ -8,9 +8,15 @@ import GoalSettingNudge from './GoalSettingNudge';
 import PostSurvey from './PostSurvey';
 import SocialNudge from './SocialNudge';
 import MidSurveyQuestions from './MidSurveyQuestions';
+<<<<<<< HEAD
 import axios from 'axios';
 
 // import SubmitButton from './SubmitButton';
+=======
+import './Form.css';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button'
+>>>>>>> d5ea0b809d9b48ff467ae1604abdb649fe8f08b9
 
 const Form = () => {
 
@@ -31,25 +37,30 @@ const Form = () => {
 
   const handleSubmit = () => {
     let answersArray = [];
-    if(!includeNudge)
-    {
-      if (!areAllQuestionsAnswered(midSurveyAnswers))
-      {
+    if (!includeNudge) {
+      if (!areAllQuestionsAnswered(midSurveyAnswers)) {
         alert("Please answer all the questions");
         return;
       }
       answersArray = [
+<<<<<<< HEAD
       { nudgeType:  includeNudge},
       { answer: [introAnswers, midSurveyAnswers] },
     ];
+=======
+        { nudgeType: includeNudge },
+        { questionId: 1, answer: introAnswers },
+        { questionId: 2, answer: midSurveyAnswers },
+      ];
+>>>>>>> d5ea0b809d9b48ff467ae1604abdb649fe8f08b9
     }
-    else{
-      if (postSurveyAnswers[0]==='' || postSurveyAnswers[1].length===0)
-      {
+    else {
+      if (postSurveyAnswers[0] === '' || postSurveyAnswers[1].length === 0) {
         alert("Please answer all the questions");
         return;
       }
       answersArray = [
+<<<<<<< HEAD
         { nudgeType:  includeNudge},
         { answer: [introAnswers, midSurveyAnswers, postSurveyAnswers] },
       ];
@@ -65,162 +76,153 @@ const Form = () => {
     });
     
     setSection(section+1);
+=======
+        { nudgeType: includeNudge },
+        { questionId: 1, answer: introAnswers },
+        { questionId: 2, answer: midSurveyAnswers },
+        { questionId: 3, answer: postSurveyAnswers },
+      ];
+    }
+    const answersJSON = JSON.stringify({ answers: answersArray });
+    setSection(section + 1);
+>>>>>>> d5ea0b809d9b48ff467ae1604abdb649fe8f08b9
   }
 
   const handleNextSection = () => {
-    if(prevQuestionIndx==0)
-    {
-      if (!areAllQuestionsAnswered(introAnswers))
-      {
+    if (prevQuestionIndx == 0) {
+      console.log('intro - ', introAnswers);
+      if (!areAllQuestionsAnswered(introAnswers)) {
         alert("Please answer all the questions");
       }
-      else
-      {
-        setPrevQuestionIndx(prevQuestionIndx+1);
+      else {
+        setPrevQuestionIndx(prevQuestionIndx + 1);
         setSection(section + 1);
       }
     }
-    else if(prevQuestionIndx==1)
-    {
-      if (!areAllQuestionsAnswered(midSurveyAnswers))
-      {
+    else if (prevQuestionIndx == 1) {
+      if (!areAllQuestionsAnswered(midSurveyAnswers)) {
         alert("Please answer all the questions");
       }
-      else
-      {
-        setPrevQuestionIndx(prevQuestionIndx+1);
+      else {
+        setPrevQuestionIndx(prevQuestionIndx + 1);
         setSection(section + 1);
-      } 
+      }
     }
-    else if(prevQuestionIndx==5)
-    {
-      if (postSurveyAnswers[0]==='' || postSurveyAnswers[1].length===0)
-      {
+    else if (prevQuestionIndx == 5) {
+      if (postSurveyAnswers[0] === '' || postSurveyAnswers[1].length === 0) {
         alert("Please answer all the questions");
       }
-      else
-      {
-        setPrevQuestionIndx(prevQuestionIndx+1);
+      else {
+        setPrevQuestionIndx(prevQuestionIndx + 1);
         setSection(section + 1);
-      } 
+      }
     }
-    else
-    {
-      setPrevQuestionIndx(prevQuestionIndx+1);
-      setSection(section+1);
+    else {
+      setPrevQuestionIndx(prevQuestionIndx + 1);
+      setSection(section + 1);
     }
   };
 
   useEffect(() => {
-    setIncludeNudge(Math.floor(Math.random()*2));
+    setIncludeNudge(Math.floor(Math.random() * 2));
   }, []);
-  
+
   const handleResponseIntro = (response, index) => {
     const updatedAnswers = [...introAnswers];
     updatedAnswers[index] = response;
     setIntroAnswers(updatedAnswers);
-};
+  };
 
 
-const handleResponseMid = (response, index) => {
-  const updatedAnswers = [...midSurveyAnswers];
-  updatedAnswers[index] = response;
-  setMidSurveyAnswers(updatedAnswers);
-};
+  const handleResponseMid = (response, index) => {
+    const updatedAnswers = [...midSurveyAnswers];
+    updatedAnswers[index] = response;
+    setMidSurveyAnswers(updatedAnswers);
+  };
 
-const handleResponsePost = (response, index) => {
-  const updatedAnswers = [...postSurveyAnswers];
-  updatedAnswers[index] = response;
-  setPostSurveyAnswers(updatedAnswers);
-};
+  const handleResponsePost = (response, index) => {
+    const updatedAnswers = [...postSurveyAnswers];
+    updatedAnswers[index] = response;
+    setPostSurveyAnswers(updatedAnswers);
+  };
 
-const areAllQuestionsAnswered = (arr) => {
-  return arr.every(answer => answer !== '');
-};
+  const areAllQuestionsAnswered = (arr) => {
+    return arr.every(answer => answer !== '');
+  };
 
   const ExperimentFlow = [
-    <IntroQuestions handleResponse={handleResponseIntro}/>,
-    <MidSurveyQuestions handleResponse={handleResponseMid}/>,
-    <PersonalisedNudge savingHabit={midSurveyAnswers[0]}/>,
-    <GoalSettingNudge savingsGoal={midSurveyAnswers[1]}/>,
-    <SocialNudge incomeIndx = {incomeRange[introAnswers[2]]}/>,
-    <PostSurvey handleResponse={handleResponsePost}/>
+    <IntroQuestions handleResponse={handleResponseIntro} />,
+    <MidSurveyQuestions handleResponse={handleResponseMid} />,
+    <PersonalisedNudge savingHabit={midSurveyAnswers[0]} />,
+    <GoalSettingNudge savingsGoal={midSurveyAnswers[1]} />,
+    <SocialNudge incomeIndx={incomeRange[introAnswers[2]]} />,
+    <PostSurvey handleResponse={handleResponsePost} />
   ]
 
   const ControlFlow = [
-    <IntroQuestions handleResponse={handleResponseIntro}/>,
-    <MidSurveyQuestions handleResponse = {handleResponseMid}/>
+    <IntroQuestions handleResponse={handleResponseIntro} />,
+    <MidSurveyQuestions handleResponse={handleResponseMid} />
   ]
 
   return (
-    <div>
+    <div className="container">
       {/* <h1>Form Title, {includeNudge}</h1>  */}
       {(() => {
-        if(includeNudge)
-        {
-        if (section <= ExperimentFlow.length)
-        {
-          if(section !== ExperimentFlow.length)
-          {
-          return(
-            <div> 
-              {ExperimentFlow[section-1]}
-              <button onClick={handleNextSection}>Next</button>
-            </div>
-          )
+        if (includeNudge) {
+          if (section <= ExperimentFlow.length) {
+            if (section !== ExperimentFlow.length) {
+              return (
+                  <div>
+                    {ExperimentFlow[section - 1]}
+                    <button onClick={handleNextSection}>Next</button>
+                  </div>
+              )
+            }
+            else {
+              return (
+                <div>
+                  {ExperimentFlow[section - 1]}
+                  <button onClick={handleSubmit}>Submit</button>
+                </div>
+              )
+            }
           }
-          else
-          {
-            return(
-              <div> 
-                {ExperimentFlow[section-1]}
-                <button onClick={handleSubmit}>Submit</button>
+          else {
+            return (<div>
+              <h1>
+                Response Recorded!
+                Thanks for participating in the survey!
+              </h1>
+            </div>)
+          }
+        }
+        else {
+          if (section <= ControlFlow.length) {
+            if (section !== ControlFlow.length) {
+              return (
+                <div>
+                  {ControlFlow[section - 1]}
+                  <button onClick={handleNextSection}>Next</button>
+                </div>
+              )
+            }
+            else {
+              return (
+                <div>
+                  {ControlFlow[section - 1]}
+                  <button onClick={handleSubmit}>Submit</button>
+                </div>
+              )
+            }
+          }
+          else {
+            return (
+              <div>
+                Thanks for participating in the survey!
               </div>
             )
           }
         }
-        else
-        {
-          return (<div>
-            <h1>
-              Response Recorded!
-              Thanks for participating in the survey!
-          </h1>
-        </div>)
-        }
-      }
-      else
-      {
-        if (section <= ControlFlow.length)
-        {
-          if(section !== ControlFlow.length)
-          {
-            return(
-              <div> 
-                {ControlFlow[section-1]}
-                <button onClick={handleNextSection}>Next</button>
-              </div>
-            )
-          }
-          else
-          {
-            return(
-              <div> 
-                {ControlFlow[section-1]}
-                <button onClick={handleSubmit}>Submit</button>
-              </div>
-            )
-          }
-        }
-        else
-        {
-          return (
-            <div>
-              Thanks for participating in the survey!
-            </div>
-          )
-        }
-      }
       })()}
     </div>
   );
