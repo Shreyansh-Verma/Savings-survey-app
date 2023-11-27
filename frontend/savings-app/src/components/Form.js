@@ -8,15 +8,12 @@ import GoalSettingNudge from './GoalSettingNudge';
 import PostSurvey from './PostSurvey';
 import SocialNudge from './SocialNudge';
 import MidSurveyQuestions from './MidSurveyQuestions';
-<<<<<<< HEAD
 import axios from 'axios';
 
 // import SubmitButton from './SubmitButton';
-=======
 import './Form.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
->>>>>>> d5ea0b809d9b48ff467ae1604abdb649fe8f08b9
 
 const Form = () => {
 
@@ -43,16 +40,9 @@ const Form = () => {
         return;
       }
       answersArray = [
-<<<<<<< HEAD
       { nudgeType:  includeNudge},
       { answer: [introAnswers, midSurveyAnswers] },
     ];
-=======
-        { nudgeType: includeNudge },
-        { questionId: 1, answer: introAnswers },
-        { questionId: 2, answer: midSurveyAnswers },
-      ];
->>>>>>> d5ea0b809d9b48ff467ae1604abdb649fe8f08b9
     }
     else {
       if (postSurveyAnswers[0] === '' || postSurveyAnswers[1].length === 0) {
@@ -60,7 +50,6 @@ const Form = () => {
         return;
       }
       answersArray = [
-<<<<<<< HEAD
         { nudgeType:  includeNudge},
         { answer: [introAnswers, midSurveyAnswers, postSurveyAnswers] },
       ];
@@ -76,16 +65,6 @@ const Form = () => {
     });
     
     setSection(section+1);
-=======
-        { nudgeType: includeNudge },
-        { questionId: 1, answer: introAnswers },
-        { questionId: 2, answer: midSurveyAnswers },
-        { questionId: 3, answer: postSurveyAnswers },
-      ];
-    }
-    const answersJSON = JSON.stringify({ answers: answersArray });
-    setSection(section + 1);
->>>>>>> d5ea0b809d9b48ff467ae1604abdb649fe8f08b9
   }
 
   const handleNextSection = () => {
