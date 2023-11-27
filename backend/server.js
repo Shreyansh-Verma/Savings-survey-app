@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -8,7 +9,7 @@ app.use(express.json());
 app.use(cors()); // Enable CORS for all routes
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://shreyansh:1234@savingsapp.sehtrvf.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
