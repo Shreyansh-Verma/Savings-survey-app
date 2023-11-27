@@ -26,7 +26,8 @@ const PostSurvey = ({ handleResponse }) => {
 
     return (
       <div>
-        <h3>Please complete the following questionnaire</h3>
+        <h2>Please complete the following questionnaire</h2>
+        <br/>
         {
       <div>
         <Question
@@ -38,7 +39,7 @@ const PostSurvey = ({ handleResponse }) => {
         />
 
 <br/>
-      <h3>{postQuestions[1].question}</h3>
+      <h3 className='text2' >{postQuestions[1].question}</h3>
       <br/>
       
       {postQuestions[1].options.map((option, index) => (

@@ -10,7 +10,8 @@ const MidSurveyQuestions = ({ handleResponse }) => {
 
     return (
       <div>
-        <h3>Please answer the following questions</h3>
+        <h2>Please answer the following questions</h2>
+        <br/>
         {MidQuestions.map((question, index) => (
         <Question
           key={index}

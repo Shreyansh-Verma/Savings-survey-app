@@ -6,7 +6,7 @@ const IntroQuestions = ({ handleResponse }) => {
   const introQuestions = [
     { question: 'Age', options: ['Less than 18 years', '18-30 years', 'Above 30 years'] },
     { question: 'Gender', options: ['Male', 'Female'] },
-    { question: 'Annual Income Range', options: ['Below Rs 10,000', 'Between Rs 10,000 - Rs 50,000', 'Between Rs 50,000 - Rs 100,000', 'Above Rs 100,000'] },
+    { question: 'Monthly Income Range', options: ['Below Rs 10,000', 'Between Rs 10,000 - Rs 50,000', 'Between Rs 50,000 - Rs 100,000', 'Above Rs 100,000'] },
     { question: 'Education Level', options: ['No education', 'High School Graduate', 'Bachelors Degree', 'Masters Degree'] },
   ];
 
@@ -15,6 +15,8 @@ const IntroQuestions = ({ handleResponse }) => {
   return (
     <div className="container">
       <div className="question">
+      <h2>Please enter your details</h2>
+      <br/>
       {introQuestions.map((question, index) => (
         <>
         <Question
