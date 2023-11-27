@@ -16,7 +16,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 
 
-const BACKEND_URL = 'http://localhost:5000/api/store-answers';
+// const BACKEND_URL = 'http://localhost:5000/api/store-answers';
+const BACKEND_URL = 'https://savings-app-backend.onrender.com/api/store-answers';
+
 
 const Form = () => {
 
