@@ -24,16 +24,16 @@ const GoalSettingNudge = ({ savingsGoal }) => {
 
       <ul>
         <li>
-          <a href="https://www.mint.com/">Mint</a>
+          <a onclick="func(0)" href="https://www.mint.com/">Mint</a>
         </li>
         <li>
-          <a href="https://www.youneedabudget.com/">YNAB (You Need a Budget)</a>
+          <a onclick="func(0)" href="https://www.youneedabudget.com/">YNAB (You Need a Budget)</a>
         </li>
         <li>
-          <a href="https://www.smartypig.com/">Smarty Pig</a>
+          <a onclick="func(0)" href="https://www.smartypig.com/">Smarty Pig</a>
         </li>
         <li>
-          <a href="https://www.capitalone.com/">Capital One</a>
+          <a onclick="func(0)" href="https://www.capitalone.com/">Capital One</a>
         </li>
       </ul>
     </div>

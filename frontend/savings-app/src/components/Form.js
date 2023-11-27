@@ -197,7 +197,10 @@ const Form = () => {
           else {
             return (
               <div>
-                Thanks for participating in the survey!
+                <h1>
+                  Response Recorded!
+                  Thanks for participating in the survey!
+                </h1>
               </div>
             )
           }
