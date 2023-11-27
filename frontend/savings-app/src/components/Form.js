@@ -8,6 +8,8 @@ import GoalSettingNudge from './GoalSettingNudge';
 import PostSurvey from './PostSurvey';
 import SocialNudge from './SocialNudge';
 import MidSurveyQuestions from './MidSurveyQuestions';
+import axios from 'axios';
+
 // import SubmitButton from './SubmitButton';
 
 const Form = () => {
@@ -38,8 +40,7 @@ const Form = () => {
       }
       answersArray = [
       { nudgeType:  includeNudge},
-      { questionId: 1, answer: introAnswers },
-      { questionId: 2, answer: midSurveyAnswers },
+      { answer: [introAnswers, midSurveyAnswers] },
     ];
     }
     else{
@@ -50,12 +51,19 @@ const Form = () => {
       }
       answersArray = [
         { nudgeType:  includeNudge},
-        { questionId: 1, answer: introAnswers },
-        { questionId: 2, answer: midSurveyAnswers },
-        { questionId: 3, answer: postSurveyAnswers },
+        { answer: [introAnswers, midSurveyAnswers, postSurveyAnswers] },
       ];
     }
     const answersJSON = JSON.stringify({ answers: answersArray });
+    console.log("answersJSON = ",answersJSON);
+    axios.post('http://localhost:5000/api/store-answers', { answersJSON })
+    .then(response => {
+      console.log('Response:', response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+    
     setSection(section+1);
   }
 
